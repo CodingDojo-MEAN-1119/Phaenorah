@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Hunting Github</title>
+    <script src="http://code.jquery.com/jquery-3.4.1.js"
+    integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <style>
+        div {
+            text-align: center;
+            border-bottom: 2px solid black;
+        }
+        button{
+        background-color: #1d355c;
+        color: white;
+        border-radius: 5px;
+        min-height: 25px;
+        padding-left: 10px; 
+        padding-right: 10px;
+        border: 5px;
+        margin-left: 10px;
+        margin-bottom: 10px;
+        }
+    </style>
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+
+        $('button').click(function(){
+            $.get("https://api.github.com/users/phaenorah", displayName)            
+            })
+            function displayName(data) {
+                $("#type").text(data.type);
+                console.log($("#type"));
+                $("#name").text(data.login);
+                console.log($("#name"));
+                console.log(data);
+            }
+        });
+
+</script>
+</head>
+<body>
+    <div class="displayName">
+        <h1>Display Github Data</h1>
+        <p id="type"></p>
+        <p id="name"></p>
+        <button>Display Name</button>
+        <p>Click the button to Display data</p>
+    </div>       
+</body>
+</html>
