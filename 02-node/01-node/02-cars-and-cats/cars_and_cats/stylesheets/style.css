@@ -1,0 +1,7 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.container{
+    background-image: linear-gradient(to top left,#C2D307,#0ED2DC);
+}
