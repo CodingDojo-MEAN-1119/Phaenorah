@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Cat Details</title>
+</head>
+<body>
+        <h1>Welcome!</h1>
+        <% for (var cat of cats) { %>  
+        <h2>Details page for <%=cat.name%>:</h2>
+            <img src="<%= cat.pic %>">          
+            <h4>Favorite Food: <%= cat.favFood %></h4>
+            <h4>Age: <%= cat.age %></h4>
+            <h4>Sleeping Spots: <%= cat.spots %></h4>
+            <hr>
+        <% } %>
+</body>
+</html>
