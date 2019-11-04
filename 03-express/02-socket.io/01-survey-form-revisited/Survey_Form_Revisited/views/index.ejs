@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="ISO-8859-1">
+	<link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="/webjars/font-awesome/css/font-awesome.min.css"></link>    
+    <title>Survey Form</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            var socket = io();
+            $("#btn").click(function(){
+                console.log("clicked button");
+                socket.emit("posting_form", {
+                    name:$("#name").val(),
+                    location:$("#location").val(),
+                    language:$("#language").val(),
+                    comment:$("#comment").val()
+                });
+            });
+            socket.on("updated_message", function(data){
+                $(".frm").text(data.info)
+            });
+            socket.on("random_number", function(data){
+                $(".rnd").text(data.message);
+            })
+        });
+    </script>
+</head>
+<body>
+    <div id="header">
+        <p class="frm"></p> 
+        <p class="rnd"></p> 
+    </div>
+	<div class="container">				
+        <h2>Your Name:<input class="fields" type="text" id="name"></h2>
+        <h2>Dojo Location:
+            <select id="location">
+                <option value="San Jose">San Jose</option>
+                <option value="Seattle">Seattle</option>
+                <option value="Dallas">Dallas</option>
+            </select>
+        </h2>
+        <h2>Favorite Language:
+        	<select id="language">
+                <option value="Python">Python</option>
+                <option value="JavaScript">JavaScript</option>
+                <option value="HTML">HTML</option>
+            </select>            
+        </h2>
+        <h2>Comment (optional):</h2>
+        <h2><input type="textarea" rows="3" id="comment"></h2>
+        <h2><input id="btn" type="submit" value="Submit"></h2>    	
+    </div>	
+</body>
+</html>
