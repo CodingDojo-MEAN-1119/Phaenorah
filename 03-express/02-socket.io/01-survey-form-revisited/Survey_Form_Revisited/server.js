@@ -22,4 +22,4 @@ io.on('connection', function (socket) {
            message:`Your lucky number emmitted by the server is: ${num}!`
        });
    });
-});
+});  
