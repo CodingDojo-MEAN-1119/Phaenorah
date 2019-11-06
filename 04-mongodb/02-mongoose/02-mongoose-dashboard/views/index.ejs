@@ -4,15 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">    
     <link rel="stylesheet" type="text/css" href="main.css">
     <title>Cat Page</title>
 </head>
 <body>
     <div>
         <h1>Welcome to my Cats page!</h1>
-        <a href="/new">Add a new cat</a>
-
+        <a href="/cats/new">Add a new cat</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Favorite Food</th>
+                    <th scope="col">Sleeping Spot</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(const cat of cats) { %>
+                <tr>
+                    <td><a href="/cats/<%= cat._id %>"><%= cat.name %></a></td>
+                    <td><%= cat.age%></td>
+                    <td><%= cat.favFood%></td>
+                    <td><%= cat.spots%></td>
+                    <td><form action="/cats/delete/<%= cat._id %>" method='post'>
+                            <input class="btn btn-danger"type="submit" value="Delete">
+                        </form>
+                        <a href="/cats/edit/<%= cat._id %>">Edit</a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
     </div>
     
 </body>

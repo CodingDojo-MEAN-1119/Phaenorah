@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <title>Add a Cat</title>
+</head>
+<body>
+    <% if(messages.catform) { %>
+        <% for (var x of messages.catform) { %>
+            <h3><%= x %></h3>
+        <% } %>
+    <% } %>
+    <a href="/">Back to Dashboard</a>
+    <div class="container">
+        <h2>Please add a cat!</h2>
+        <form action='/cats' method='post' autocomplete="off">
+            <div class="form-group"> 
+                <label for="">Name:</label>
+                <input class="form-control" type= "text" name= "name" > 
+            </div>
+            <div class="form-group">
+                <label for="" class="col-sm-2 col-form-label">Age:</label>
+                <input class="form-control" type= "number" name= "age" >
+            </div>
+            <div class="form-group">
+                <label for="">Favorite Food:</label>
+                <input class="form-control" type= "text" name= "favFood" >
+            </div>
+            <div class="form-group">
+                <label for="">Sleeping Spot:</label>
+                <input class="form-control" type= "text" name= "spots" >
+            </div>
+            <button class="btn btn-primary">Submit</button>
+        </form>        
+    </div>       
+</body>
+</html>
