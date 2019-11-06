@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Show One Cat</title>
+</head>
+<body>
+    <div class="container">       
+        <h3>Name: <%= cat.name %></h3>
+        <h3>Age: <%= cat.age %></h3>
+        <h4>Favorite Food: <%= cat.favFood %></h4>
+        <h3>Spots: <%= cat.spots %></h3>
+        <a href="/">Dashboard</a>
+        <a href="/<%= cat._id %>/edit">Edit</a>
+    </div>
+</body>
+</html>

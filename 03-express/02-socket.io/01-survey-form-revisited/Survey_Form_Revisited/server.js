@@ -11,8 +11,7 @@ app.use(express.urlencoded({extended: true}));
 app.get("/", (req,res) => {  
    res.render("index", {title: "my root route"});
 })
-io.on('connection', function (socket) {
-   console.log("Connected!");
+io.on('connection', function (socket) {   
   socket.on("posting_form", function (data){
        var num = Math.floor(Math.random()*1000);
        var object = JSON.stringify(data);

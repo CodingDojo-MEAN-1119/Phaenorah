@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Quoting Dojo</title>
+</head>
+<body class="container">
+    <h1>Welcome to Quoting Dojo</h1>
+    <form action='/quotes' method='post'>
+        <h3>Your Name: <input type='text' name='name'></h3>
+        <h3>Your quote: <textarea rows="3" name="quote"></textarea></h3>
+        <p><input class="btn btn-success" type='submit' value='Add my Quote!'></p>
+    </form>
+    <a href="/quotes"><button class="btn btn-primary" type='submit'>Skip to Quotes!</button></a>   
+    <!-- <%= JSON.stringify(messages) %>  -->
+    <% if(messages.quoteform) { %>
+        <% for (var x of messages.quoteform) { %>
+            <h3><%= x %></h3>
+        <% } %>
+    <% } %>
+</body>
+</html>
