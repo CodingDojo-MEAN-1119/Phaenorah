@@ -92,7 +92,7 @@ app.post('/cats/delete/:id',(req, res) => {
     Cat.remove({_id: req.params.id})
     .then(this_cat => {
         res.redirect('/')})
-        .catch(err => res.json(err))       
+        .catch(err => res.json(err))      
 }); 
 
 app.listen(8000, () => console.log("listening on port 8000"));
