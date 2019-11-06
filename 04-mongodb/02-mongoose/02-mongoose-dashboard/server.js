@@ -90,7 +90,7 @@ app.post('/:id',(req, res) => {
 
 app.post('/cats/delete/:id',(req, res) => {
     Cat.remove({_id: req.params.id})
-    .then(this_cat => {
+    .then(cat => {
         res.redirect('/')})
         .catch(err => res.json(err))      
 }); 
