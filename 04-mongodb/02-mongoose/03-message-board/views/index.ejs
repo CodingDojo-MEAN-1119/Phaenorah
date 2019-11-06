@@ -14,7 +14,12 @@
             <% for (var x of messages.messageform) { %>
                 <h3><%= x %></h3>
             <% } %>
-        <% } %>   
+        <% } %> 
+        <% if(messages.commentform) { %>
+            <% for (var j of messages.commentform) { %>
+                <h3><%= j %></h3>
+            <% } %>
+        <% } %>    
     <h1>The Dojo Message Board</h1>
     <div class="container">
         <div>

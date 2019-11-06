@@ -85,18 +85,14 @@ app.post('/comments/:id', (req, res) => {
     Message.findById({ _id: messageId }, function(err, message) {         
         Message.update({ _id: message.id }, { $push: { comments: req.body }})			    
       .then(() => {
-            res.redirect('/');
-      });
-    })
-    .catch(err => {
-        console.log("We have an error!", err);        
-        for (var key in err.errors) {
-            req.flash('commentform', err.errors[key].message);
+            res.redirect('/')})
+        .catch(err => {
+            console.log("We have an error!", err);
+            for (var key in err.errors) {
+                req.flash('commentform', err.errors[key].message);
         }
         res.redirect('/');
     });
+    });
 })
-
-
-
 app.listen(8000, () => console.log("listening on port 8000"));
