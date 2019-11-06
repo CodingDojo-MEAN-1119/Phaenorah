@@ -64,4 +64,4 @@ app.get('/quotes', (req, res) => {
         .catch(err => res.json(err));
                
 });
-app.listen(8000, () => console.log("listening on port 8000"));
+app.listen(8000, () => console.log("listening on port 8000")); 
