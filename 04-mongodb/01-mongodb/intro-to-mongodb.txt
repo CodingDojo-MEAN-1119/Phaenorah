@@ -68,3 +68,4 @@
     
 // 19. Add a 'updated_on' field, and set the value as the current date.
 	db.students.update({}, {$currentDate:{updated_on:true}},{multi:true})
+	 
