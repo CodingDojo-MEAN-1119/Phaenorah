@@ -54,14 +54,14 @@ const MessageSchema = new mongoose.Schema({
     },
     comments: [CommentSchema]
     }, 
-    {timestamps: true})
-   
-const Comment = mongoose.model('Comment', CommentSchema);
+    {timestamps: true})   
+
 const Message = mongoose.model('Message', MessageSchema);
 
 app.get('/', (req, res) => { 
-    Message.find({})    
-    .then(messages => {      
+    Message.find({}) 
+    .then(messages => {
+        console.log(messages)
       res.render('index', { messages });
     })   
 });
@@ -80,18 +80,12 @@ app.post('/messages', (req, res) => {
         res.redirect('/')
     });
 })
-app.post('/comments', (req, res) => {
-    Comment.create(request.body)
-    .then(comment => {
-      console.log(comment);
-
-      return Message.findById(comment.message)
-      .then(message => {
-          message.comments.push(comment);
-          return message.save();
-      })
+app.post('/comments/:id', (req, res) => {
+    const messageId = req.params.id;
+    Message.findById({ _id: messageId }, function(err, message) {         
+        Message.update({ _id: message.id }, { $push: { comments: req.body }})			    
       .then(() => {
-            response.redirect('/');
+            res.redirect('/');
       });
     })
     .catch(err => {
