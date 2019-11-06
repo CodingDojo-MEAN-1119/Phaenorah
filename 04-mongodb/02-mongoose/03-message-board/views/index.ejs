@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">    
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Message Board</title>
+</head>
+<body class="wrapper">
+        <% if(messages.messageform) { %>
+            <% for (var x of messages.messageform) { %>
+                <h3><%= x %></h3>
+            <% } %>
+        <% } %>   
+    <h1>The Dojo Message Board</h1>
+    <div class="container">
+        <div>
+            <form action="/messages" method='post' autocomplete="off">
+                <div class="form-group">
+                    <label for="">Name:</label>
+                    <input class="form-control" type= "text" name= "name">
+                </div>
+                <div class="form-group">
+                    <label for="">Message:</label>
+                    <textarea name= "message" class="form-control" rows="3"></textarea><br>
+                    <button class= "btn btn-primary">Post Message</button>
+                </div>
+            </form>
+        </div>
+    <% for(const message of messages) { %>
+    <h3>Name:<%=message.name %></h3>
+    <h3>Message:<%=message.message %></h3>
+        <div>
+            <% for (var comment of message.comments) { %>
+            <h4>Name:<%= comment.name %></h4>
+            <h4>Comment:<%= comment.comment %></h4>
+            <% } %>
+            <form action="/comments" method='post' autocomplete="off">
+                <div class="form-group">
+                    <label for="">Name:</label>
+                    <input class="form-control" type= "text" name= "name">
+                </div>
+                <div class="form-group">
+                    <label for="">Comment:</label>
+                    <textarea name= "comment" class="form-control" rows="3"></textarea><br>
+                    <button class= "btn btn-primary">Post Message</button>
+                </div>
+            </form>
+        </div>
+        <% } %>         
+    </div>
+</body>
+</html>
