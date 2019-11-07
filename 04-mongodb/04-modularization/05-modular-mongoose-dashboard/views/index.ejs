@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">    
+    <link rel="stylesheet" type="text/css" href="main.css">
+    <title>Cat Page</title>
+</head>
+<body class="wrapper">
+    <div>
+        <h1>Welcome to my Cats page!</h1>
+        <a href="/cats/new">Add a new cat</a>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Age</th>
+                    <th scope="col">Favorite Food</th>
+                    <th scope="col">Sleeping Spot</th>
+                    <th scope="col">Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(const cat of cats) { %>
+                <tr>
+                    <td><a href="/cats/<%= cat._id %>"><%= cat.name %></a></td>
+                    <td><%= cat.age%></td>
+                    <td><%= cat.favFood%></td>
+                    <td><%= cat.spots%></td>
+                    <td><form action="/cats/delete/<%= cat._id %>" method='post'>
+                            <input class="btn btn-danger"type="submit" value="Delete">
+                        </form>
+                        <a href="/cats/edit/<%= cat._id %>">Edit</a>
+                    </td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    
+</body>
+</html>

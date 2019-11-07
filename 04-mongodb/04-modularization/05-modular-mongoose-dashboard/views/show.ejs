@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">  
+    <title>Show One Cat</title>
+</head>
+<body>
+    <a href="/">Back to Dashboard</a>
+    <div class="container">       
+        <h2>Name: <%= cat.name %></h2>
+        <h3>Age: <%= cat.age %></h3>
+        <h3>Favorite Food: <%= cat.favFood %></h3>
+        <h3>Spots: <%= cat.spots %></h3>        
+        <a href="/cats/edit/<%= cat._id %>">Edit</a>
+    </div>
+</body>
+</html>
