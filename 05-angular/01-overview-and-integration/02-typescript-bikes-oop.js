@@ -12,49 +12,42 @@
 // What would you do to prevent the instance from having negative miles?
 // Which methods can return this in order to allow chaining methods?
 // For assignment submission, upload a ".ts" file with the contents of the TypeScript Playground.
-
-class Bike {    
-    miles : number;
-    constructor (public price: number, public max_speed: string){        
-        this.miles = 0;        
+var Bike = /** @class */ (function () {
+    function Bike(price, max_speed) {
+        this.price = price;
+        this.max_speed = max_speed;
+        this.miles = 0;
     }
-
-    displayInfo(){
-        console.log(`Price: + ${this.price} + , Max Speed:  + ${this.max_speed} + , Total Miles:  + ${this.miles}`)
-    }
-
-    ride(){
+    Bike.prototype.displayInfo = function () {
+        console.log("Price: + " + this.price + " + , Max Speed:  + " + this.max_speed + " + , Total Miles:  + " + this.miles);
+    };
+    Bike.prototype.ride = function () {
         console.log("Riding...");
         this.miles += 10;
         return this;
-    }
-
-    reverse(){
+    };
+    Bike.prototype.reverse = function () {
         console.log("Reversing...");
         if (this.miles <= 5) {
             this.miles = 0;
             return this;
         }
-        else{
+        else {
             this.miles -= 5;
             return this;
         }
-    }
-}
-
-const bike1 = new Bike(3000, "10mph");
-const bike2 = new Bike(2000, "15mph");
-const bike3 = new Bike(1000, "30mph");
-
-
+    };
+    return Bike;
+}());
+var bike1 = new Bike(3000, "10mph");
+var bike2 = new Bike(2000, "15mph");
+var bike3 = new Bike(1000, "30mph");
 console.log("Bike 1");
 bike1.ride().ride().ride().reverse();
 bike1.displayInfo();
-
 console.log("Bike 2");
 bike2.ride().ride().reverse().reverse();
 bike2.displayInfo();
-
 console.log("Bike 3");
 bike3.reverse().reverse().reverse();
 bike3.displayInfo();
