@@ -58,3 +58,4 @@ bike2.displayInfo();
 console.log("Bike 3");
 bike3.reverse().reverse().reverse();
 bike3.displayInfo();
+
