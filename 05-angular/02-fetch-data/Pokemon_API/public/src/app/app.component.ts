@@ -6,7 +6,7 @@ import { HttpService } from './http.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent  {
   title = 'public';
   constructor(private _httpService: HttpService) {}
 }

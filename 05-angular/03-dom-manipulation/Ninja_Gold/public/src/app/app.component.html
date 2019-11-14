@@ -1,0 +1,28 @@
+<div class="container">
+  <h2>Your Gold:{{ gold }}</h2>
+    <div class="blue">
+      <h2>Farm</h2>
+      <p>(Earns 2-5 Gold):</p><br>
+      <button class="btn btn-success btn-lg" (click)='farm()'>Find Gold!</button>
+    </div>
+    <div class="blue">
+      <h2>Cave</h2>
+      <p>(Earns 5-10 Gold):</p><br>
+      <button class="btn btn-danger btn-lg" (click)='cave()'>Find Gold!</button>
+    </div>
+    <div class="blue">
+      <h2>House</h2>
+      <p>(Earns 7-15 Gold):</p><br>
+      <button class="btn btn-primary btn-lg" (click)='house()'>Find Gold!</button>
+    </div>
+    <div class="blue">
+      <h2>Casino</h2>
+      <p>(Earns upto/Lose upto 100 Gold):</p><br>
+      <button class="btn btn-warning btn-lg" (click)='casino()'>Find Gold!</button>
+    </div>
+  <h2>Activities:</h2>
+      <div class="win">
+        <p  *ngFor='let msg of playersLog'>{{ msg }}</p>
+      </div>
+  <button (click)= 'onReset()'>Go back to Counter</button>
+</div>
