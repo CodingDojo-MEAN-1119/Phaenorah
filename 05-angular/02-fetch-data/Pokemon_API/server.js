@@ -8,6 +8,7 @@
 //For example, "Bulbasaur's abilities are chlorophyll and overgrow."
 // Finally, use the data to make another API request to print how many Pokemon share your Pokemon's abilities.
 //For example, "23 Pokemon have the overgrow ability."
+//Print in console
 
 const express = require("express");
 const app = express();
