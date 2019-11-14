@@ -9,5 +9,7 @@
 }
 .container{
   text-align: center;
-  background-image: linear-gradient(to top left,#C2D307,#0ED2DC)
+  background-image: linear-gradient(to top left,#C2D307,#0ED2DC);
+  height: 800px;
+  width: 1350px;
 }
