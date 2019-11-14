@@ -23,7 +23,7 @@ export class AppComponent implements OnInit {
   }
   ngOnInit() {
       this._httpService.getTasks().subscribe(data => {
-        console.log('tasks', data);
+        console.log('all_tasks', data);
         this.tasks = data as any;
       });
   }
