@@ -1,0 +1,28 @@
+<div class="container">
+<section>
+  <fieldset>
+    <h1>Restful Tasks API</h1>
+    <button class= "btn btn-primary btn-lg" (click)="getTasksFromService()" >Get All Tasks</button>
+  </fieldset>
+</section>
+
+<section class='tasks'>
+  <fieldset>
+    <h1>Task List</h1>
+    <div *ngFor='let task of tasks'>
+        <strong><p>{{task.title }}
+          <button class= "btn btn-success btn-circle btn-xl" (click)="onSelect(task)">SHOW</button>
+        </p></strong>
+    </div>
+  </fieldset>
+</section>
+
+<section *ngIf='task'>
+  <fieldset>
+    <h1>Selected Task</h1>
+    <strong><p>ID: {{ selectedTask._id}}</p></strong>
+    <strong><p>Title: {{ selectedTask.title}}</p></strong>
+    <strong><p>Description: {{ selectedTask.description}}</p></strong>
+  </fieldset>
+</section>
+</div>
