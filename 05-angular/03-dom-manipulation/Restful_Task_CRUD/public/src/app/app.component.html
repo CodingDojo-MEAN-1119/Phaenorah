@@ -1,0 +1,61 @@
+<section>
+  <fieldset>
+    <h1>Create a Task</h1>
+
+    <form (submit)='onSubmit($event, taskForm)' #taskForm='ngForm' autocomplete="off">
+      <!-- {{ taskForm.valid | json}} -->
+      <div>
+        <label for="">Title</label>
+        <input type="text" class="form-control" name="title" [(ngModel)]="task.title" required>
+      </div>
+      <div>
+        <label for="">Description</label>
+        <textarea rows="3" class="form-control" name="description" [(ngModel)]="task.description"></textarea>
+      </div>
+      <button class="btn btn-primary">Submit</button>
+    </form>
+  </fieldset>
+</section>
+<section class='tasks'>
+  <h1>Task List</h1>
+  <table class='table table-striped'>
+    <thead>
+      <tr>
+        <th>ID:</th>
+        <th>Title:</th>
+        <th>Description:</th>
+        <th>Actions:</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let task of tasks' (click)='onSelect(task)'>
+        <td>{{task._id }}</td>
+        <td>{{task.title }}</td>
+        <td>{{task.description }}</td>
+        <td><button id="edit" class="btn btn-success" (click)="editForm(task)">EDIT</button>
+          <button id="delete" class="btn btn-danger" (click)="onDelete(task)">DELETE</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section *ngIf='selectedTask'>
+  <fieldset>
+    <h1>Selected Task</h1>
+    <p>ID: {{ selectedTask._id}}</p>
+    <p>Title: {{ selectedTask.title}}</p>
+    <p>Description: {{ selectedTask.description}}</p>
+  </fieldset>
+</section>
+
+<section>
+  <div *ngIf="editTog">
+    <h1>Edit a Task</h1>
+    <form (submit)="onEdit()">
+      <p><input type="text" name="editTask.title" [(ngModel)]="editTask.title"></p>
+      <p><input type="text" name="editTask.description" [(ngModel)]="editTask.description"></p>
+      <input class="btn btn-primary" type="submit" value="Edit" />
+    </form>
+  </div>
+</section>
