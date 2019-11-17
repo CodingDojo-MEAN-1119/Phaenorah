@@ -28,10 +28,10 @@ app.post('/users', (req, res) => {
     user.age = req.body.age;
     user.save()
         .then(newUserData => console.log('user created: ', newUserData))
-        .catch(err => console.log(err));    
+        .catch(err => console.log(err));
     res.redirect('/');
 })
-app.get('/', (req, res) => {  
+app.get('/', (req, res) => {
 User.find()
     .then(data => res.render("index", {users: data}))
     .catch(err => res.json(err));

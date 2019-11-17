@@ -25,7 +25,7 @@ require('./server/config/database');
 const routes = require('./server/routes/cat.routes.js');
 
 
-app.use(routes); 
- 
+app.use(routes);
+
 
 app.listen(8000, () => console.log("listening on port 8000"));

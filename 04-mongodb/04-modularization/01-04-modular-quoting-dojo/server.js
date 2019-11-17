@@ -21,10 +21,10 @@ app.use(session({
     cookie: { maxAge: 60000 }
   }))
 
-  
+
 require('./server/config/database');
 const routes = require('./server/routes/quote.routes.js');
 
 app.use(routes);
 
-app.listen(8000, () => console.log("listening on port 8000")); 
+app.listen(8000, () => console.log("listening on port 8000"));
