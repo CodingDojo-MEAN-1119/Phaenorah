@@ -8,10 +8,11 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(express.urlencoded({extended: true}));
 
-app.get("/", (req,res) => {  
+app.get("/", (req,res) => {
    res.render("index", {title: "my root route"});
 })
-io.on('connection', function (socket) {   
+io.on('connection', function (socket) {
+
   socket.on("posting_form", function (data){
        var num = Math.floor(Math.random()*1000);
        var object = JSON.stringify(data);
@@ -22,4 +23,4 @@ io.on('connection', function (socket) {
            message:`Your lucky number emmitted by the server is: ${num}!`
        });
    });
-});  
+});

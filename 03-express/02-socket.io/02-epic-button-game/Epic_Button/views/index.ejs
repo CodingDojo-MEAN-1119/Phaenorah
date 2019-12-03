@@ -1,38 +1,40 @@
-<!-- NOT COMPLETE****** -->
+<!-- FINALLY COMPLETE AND WORKS****** -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <title>Epic Button Game</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type ="text/javascript" src="/socket.io/socket.io.js"></script>
-    <link rel="stylesheet" type="text/css" href="main.css">
-    <title>Epic Button Game</title>
     <script type="text/javascript">
+      $(document).ready(function() {
         var socket = io();
         $("#epic").click(function(){
-            console.log("Epic Clicked!");
             socket.emit("epic_push");
-        })
+        });
         $("#reset").click(function(){
-            console.log("Reset Clicked!");
             socket.emit("reset_push");
-        })
+        });
+
         socket.on("new_count", function(data){
             $("#title").text(data.newCount);
-        })
+        });
         socket.on("reset_count", function(data){
             $("#title").text(data.newCount);
-        })
+        });
+      })
     </script>
 </head>
 <body>
     <h1 id="title"></h1>
     <div id="container">
         <p>Push the button to update the count!</p>
-        <button id="epic">Push the Epic Button</button>
-    </div>
-    <button id="reset">Reset Count</button>
+        <button class="btn btn-primary" id="epic">Push the Epic Button</button>
+    </div><br>
+    <button class="btn btn-danger" id="reset">Reset Count</button>
 </body>
 </html>

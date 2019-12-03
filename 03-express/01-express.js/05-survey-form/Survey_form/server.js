@@ -6,7 +6,7 @@ app.set('view engine', 'ejs');
 app.set('views', __dirname + '/views');
 app.use(express.urlencoded({extended: true}));
 
-app.get("/", (req,res) => {  
+app.get("/", (req,res) => {
    res.render("index", {title: "my root route"});
 })
 app.post('/result',(req,res) => {
